@@ -1,4 +1,6 @@
-﻿namespace ZoroDex.SimpleCard.Data.Card
+﻿using SimpleCardGames.Data.Effects;
+
+namespace ZoroDex.SimpleCard.Data.Card
 {
     public interface ICardData : IBaseData
     {
@@ -7,7 +9,7 @@
         CardType CardType { get; }
         CardMonsterType CardMonsterType { get; }
         // TODO: EffectsSet 
-        //EffectsSet Effects { get; }
+        EffectsSet Effects { get; }
         
     }
 }
