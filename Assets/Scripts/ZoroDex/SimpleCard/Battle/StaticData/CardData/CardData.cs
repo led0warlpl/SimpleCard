@@ -13,7 +13,6 @@ namespace ZoroDex.SimpleCard.Data.Card
 
         [SerializeField] CardType cardType;
 
-        //TODO: EffectsSet
         EffectsSet dataEffects;
         [SerializeField] string description;
         [SerializeField] CardId id;

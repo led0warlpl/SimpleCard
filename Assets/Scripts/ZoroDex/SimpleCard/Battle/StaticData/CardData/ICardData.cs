@@ -8,7 +8,6 @@ namespace ZoroDex.SimpleCard.Data.Card
         int CardCost { get; }
         CardType CardType { get; }
         CardMonsterType CardMonsterType { get; }
-        // TODO: EffectsSet 
         EffectsSet Effects { get; }
         
     }
