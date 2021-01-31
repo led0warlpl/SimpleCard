@@ -1,5 +1,6 @@
 ﻿namespace ZoroDex.SimpleCard.Battle
 {
+    
     /// <summary>
     ///     Small Part of a Turn.
     /// </summary>
@@ -11,6 +12,8 @@
         ///     All game data.
         /// </summary>
         protected IGame Game { get; set; }
+
+        
 
     }
 }

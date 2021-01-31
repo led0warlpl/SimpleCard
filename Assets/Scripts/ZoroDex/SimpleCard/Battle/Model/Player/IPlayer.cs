@@ -10,5 +10,15 @@ namespace ZoroDex.SimpleCard
         Collection<IRuntimeCard> Hand { get; }
         PlayerSeat Seat { get; }
         
+        ITeam Team { get; }
+        int Mana { get; }
+        void StartTurn();
+        void FinishTurn();
+        void DrawStartingHand();
+        bool Draw();
+        bool Play(IRuntimeCard card);
+        bool CanPlay(IRuntimeCard card);
+        bool Discard(IRuntimeCard card);
+
     }
 }

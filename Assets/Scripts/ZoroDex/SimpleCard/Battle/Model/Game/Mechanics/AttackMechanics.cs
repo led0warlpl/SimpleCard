@@ -32,7 +32,32 @@ namespace ZoroDex.SimpleCard.Battle
 
             var source = data.Agressor;
             var target = data.Blocker;
+            var teamHasTaunt = data.Blocker.Attributes.Owner.Team.HasTaunt;
+            var isTauntSelected = data.Blocker.Attributes.HasTaunt;
+
+            if (!source.CanAttack() || !isTauntSelected & teamHasTaunt)
+            {
+                GameEvents.Instance.Notify<GameEvents.IDoAttack>(i => i.OnCantAttack(source, target, 0));
+                return;
+                
+            }
             
+            //apply effects that happen before an attack
+            source.OnBeforeAttack();
+
+            var damage = source.Attributes.Attack;
+            
+            //do attack
+            var damageDealt = source.GiveDamage(target);
+            
+            //attack execution
+            source.ExecuteAttack();
+            
+            //apply effects that happen after an attack
+            source.OnAfterAttack();
+            
+            //dispatch damage
+            OnDoneDamage(source,target,damageDealt);
 
         }
 

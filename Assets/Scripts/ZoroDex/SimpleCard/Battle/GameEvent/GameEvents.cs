@@ -63,6 +63,14 @@ namespace ZoroDex.SimpleCard.Battle
             //Character has not attacks left
             void OnCantAttack(IDamager source, IDamageable target, int amount);
         }
+
+        /// <summary>
+        ///     Broadcast of the time to the Listenrs.
+        /// </summary>
+        public interface IDoTick : ISubject
+        {
+            void OnTickTime(int time, IPlayer player);
+        }
         
         
         
