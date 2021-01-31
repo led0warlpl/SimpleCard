@@ -1,4 +1,4 @@
-﻿namespace ZoroDex.SimpleCard.Battle.Model.Player
+﻿namespace ZoroDex.SimpleCard.Battle
 {
     /// <summary>
     ///     Position where a player can take seat in the game.

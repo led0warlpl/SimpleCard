@@ -1,4 +1,6 @@
-﻿using SimpleCardGames.Data.Effects;
+﻿
+
+using ZoroDex.SimpleCard.Data.Effects;
 
 namespace ZoroDex.SimpleCard.Data.Card
 {

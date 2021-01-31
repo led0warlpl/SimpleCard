@@ -1,7 +1,7 @@
 ﻿namespace ZoroDex.SimpleCard
 {
-    public class Player
+    public class RuntimeCardFactory
     {
-        
+         
     }
 }

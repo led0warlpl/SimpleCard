@@ -5,7 +5,7 @@
     /// </summary>
     public interface IEffectable
     {
-        
+        EffectsSet Effects { get; }
         
     }
 }

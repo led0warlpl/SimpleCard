@@ -1,7 +1,14 @@
-﻿namespace ZoroDex.SimpleCard.Battle.Model.Player
+﻿using Tools;
+using ZoroDex.SimpleCard.Battle;
+using ZoroDex.SimpleCard.Data.Effects;
+
+namespace ZoroDex.SimpleCard
 {
-    public class IPlayer
+    public interface IPlayer : ITargetable,IDrawable,IDiscardable,ISpawner,IManaManipulator
     {
+        Configurations Configurations { get; }
+        Collection<IRuntimeCard> Hand { get; }
+        PlayerSeat Seat { get; }
         
     }
 }

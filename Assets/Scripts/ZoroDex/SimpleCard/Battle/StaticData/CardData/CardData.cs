@@ -1,5 +1,6 @@
-﻿using SimpleCardGames.Data.Effects;
+﻿
 using UnityEngine;
+using ZoroDex.SimpleCard.Data.Effects;
 
 namespace ZoroDex.SimpleCard.Data.Card
 {
@@ -26,7 +27,7 @@ namespace ZoroDex.SimpleCard.Data.Card
         public string Name => cardName;
         public string Description => description;
         public Sprite Artwork => artwork;
-        // TODO: EffectsSet 
+       
          public EffectsSet Effects => dataEffects;
 
     }

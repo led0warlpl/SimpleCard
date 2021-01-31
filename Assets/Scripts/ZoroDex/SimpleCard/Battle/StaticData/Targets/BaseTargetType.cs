@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using ZoroDex.SimpleCard.Battle.Model.Player;
-using ZoroDex.SimpleCard.Data.Effects;
+using ZoroDex.SimpleCard.Battle;
 
 namespace ZoroDex.SimpleCard.Data.Targets
 {

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ZoroDex.SimpleCard.Battle.Model.Player;
 using ZoroDex.SimpleCard.Patterns;
 
 namespace ZoroDex.SimpleCard.Battle
