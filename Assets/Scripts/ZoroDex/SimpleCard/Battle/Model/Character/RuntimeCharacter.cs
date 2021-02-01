@@ -1,8 +1,13 @@
-﻿using ZoroDex.SimpleCard.Data.Character;
+﻿using System;
+using ZoroDex.SimpleCard.Battle;
+using ZoroDex.SimpleCard.Data.Character;
 using ZoroDex.SimpleCard.Patterns;
 
 namespace ZoroDex.SimpleCard
 {
+    /// <summary>
+    ///     A concrete character in the game.
+    /// </summary>
     public class RuntimeCharacter : IRuntimeCharacter,IPoolable
     {
         public RuntimeCharacter()
@@ -10,69 +15,92 @@ namespace ZoroDex.SimpleCard
             
         }
 
+        public RuntimeCharacter(ICharacterData characterData, IPlayer player) => SetData(characterData, player);
+        
+        // ------------------------------------------------------------------
         
         
         public void SetData(ICharacterData data, IPlayer player)
         {
             Data = data;
             Attributes = new CharAttributes(Data, player);
+            Health = new HealthMechanic(this);
+            Damage = new DamageMechanic(this);
+            Heal = new HealMechanic(this);
+            Death = new DeathMechanic(this);
+            AttackTurn = new AttackCharacterMechanic(this);
             // TODO: wait implement Mechanics
         }
-        public int DoHeal(IHealable target, int healAmount)
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public int TakeHeal(IHealer source, int amount)
-        {
-            throw new System.NotImplementedException();
-        }
+        #region Heal
+
+        public int DoHeal(IHealable target, int healAmount) => Heal.DoHeal(target, healAmount);
+
+        public int TakeHeal(IHealer source, int amount) => Health.TakeHeal(source, amount);
+
+        #endregion
+
+        #region Damage
 
         public int TakeDamage(IDamager source, int amount)
         {
-            throw new System.NotImplementedException();
+            var dmg = Health.TakeDamage(source, amount);
+            EvaluateDeath();
+            return dmg;
         }
 
         public int GiveDamage(IDamageable target)
         {
-            throw new System.NotImplementedException();
+            var dmg = Damage.DoAttack(target);
+            return dmg;
         }
 
-        public void EvaluateDeath()
-        {
-            throw new System.NotImplementedException();
-        }
+        #endregion
 
-        public bool CanAttack()
-        {
-            throw new System.NotImplementedException();
-        }
+        #region Death
 
-        public void ExecuteAttack()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void EvaluateDeath() => Death.EvaluateDeath();
 
-        public void OnBeforeAttack()
-        {
-            throw new System.NotImplementedException();
-        }
+        #endregion
 
-        public void OnAfterAttack()
-        {
-            throw new System.NotImplementedException();
-        }
+        #region Attack
+
+        public bool CanAttack() => AttackTurn.CanAttack() && !Attributes.HasSummoningSickness;
+
+        public void ExecuteAttack() => AttackTurn.Execute();
+
+        public void OnBeforeAttack() => AttackTurn.OnBeforeAttack();
+
+        public void OnAfterAttack() => AttackTurn.OnAfterAttack();
+
+        #endregion
 
         public ICharacterData Data { get; set; }
         public CharAttributes Attributes { get; private set; }
         public void StartPlayerTurn()
         {
-            throw new System.NotImplementedException();
+            Attributes.HasSummoningSickness = false;
+            AttackTurn.ResetAttackQuantity();
         }
+
+        
 
         public void Restart()
         {
-            throw new System.NotImplementedException();
+            
         }
+
+        #region Mechanics
+
+        private AttackCharacterMechanic AttackTurn { get; set; }
+        private HealthMechanic Health { get; set; }
+        private DamageMechanic Damage { get; set; }
+        private DeathMechanic Death { get; set; }
+        private HealMechanic Heal { get; set; }
+
+        #endregion
+        
+        // ------------------------------------------------------------
+        
     }
 }
