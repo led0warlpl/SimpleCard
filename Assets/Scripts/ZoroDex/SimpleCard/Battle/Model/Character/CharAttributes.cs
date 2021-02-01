@@ -21,7 +21,15 @@ namespace ZoroDex.SimpleCard
         
         public void SetData(ICharacterData data, IPlayer owner)
         {
-            
+            CharacterData = data;
+            Attack = data.Attack;
+            MaxHealth = data.Health;
+            Health = MaxHealth;
+            MaxAttackPerTurn = data.AttacksTurn;
+            HasTaunt = CharacterData.HasTaunt;
+            Owner = owner;
+            HasSummoningSickness = true;
+
         }
     }
 }

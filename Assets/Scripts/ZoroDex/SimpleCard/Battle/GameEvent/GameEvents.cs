@@ -63,6 +63,28 @@ namespace ZoroDex.SimpleCard.Battle
             //Character has not attacks left
             void OnCantAttack(IDamager source, IDamageable target, int amount);
         }
+        
+        /// <summary>
+        ///     Broadcast of a damage to the LIsteners.
+        /// </summary>
+        public interface IDoDamage : ISubject
+        {
+            void OnDamage(IDamager source, IDamageable target, int amount);
+        }
+
+        /// <summary>
+        ///     Broadcast of a heal to the Listeners.
+        /// </summary>
+        public interface IDoHeal : ISubject
+        {
+            void OnHeal(IHealer source, IHealable target, int amount);
+        }
+
+        
+        public interface IDoKill : ISubject
+        {
+            void OnKill(IRuntimeCharacter target);
+        }
 
         /// <summary>
         ///     Broadcast of the time to the Listenrs.
@@ -71,6 +93,160 @@ namespace ZoroDex.SimpleCard.Battle
         {
             void OnTickTime(int time, IPlayer player);
         }
+
+        /// <summary>
+        ///     Broadcast of a draw card.
+        /// </summary>
+        public interface IPlayerDrawCard : ISubject
+        {
+            void OnDrawCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a draw minion card.
+        /// </summary>
+        public interface IPlayerDrawMinionCard : ISubject
+        {
+            void OnDrawMinionCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a draw spell card.
+        /// </summary>
+        public interface IPlayerDrawSpellCard : ISubject
+        {
+            void OnDrawSpellCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a draw power card.
+        /// </summary>
+        public interface IPlayerDrawPowerCard : ISubject
+        {
+            void OnDrawPowerCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a draw curse card.
+        /// </summary>
+        public interface IPlayerDrawCurseCard : ISubject
+        {
+            void OnDrawCurseCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a discard card
+        /// </summary>
+        public interface IPlayerDiscardCard : ISubject
+        {
+            void OnDiscardCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a discard minion card.
+        /// </summary>
+        public interface IPlayerDiscardMinionCard : ISubject
+        {
+            void OnDiscardMinionCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a discard spell card.
+        /// </summary>
+        public interface IPlayerDiscardSpellCard : ISubject
+        {
+            void OnDiscardSpellCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a Discard power  card.
+        /// </summary>
+        public interface IPlayerDiscardPowerCard : ISubject
+        {
+            void OnDiscardPowerCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a Discard curse card.
+        /// </summary>
+        public interface IPlayerDiscardCurseCard : ISubject
+        {
+            void OnDiscardCurseCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a play card.
+        /// </summary>
+        public interface IPlayerPlayCard : ISubject
+        {
+            void OnPlayCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a play minion card.
+        /// </summary>
+        public interface IPlayerPlayMinionCard : ISubject
+        {
+            void OnPlayMinionCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a play spell card.
+        /// </summary>
+        public interface IPlayerPlaySpellCard : ISubject
+        {
+            void OnPlaySpellCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a play power card.
+        /// </summary>
+        public interface IPlayerPlayPowerCard : ISubject
+        {
+            void OnPlayPowerCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a play curse card.
+        /// </summary>
+        public interface IPlayerPlayCurseCard : ISubject
+        {
+            void OnPlayCurseCard(IPlayer player, IRuntimeCard card);
+        }
+
+        /// <summary>
+        ///     Broadcast of a mana consumption.
+        /// </summary>
+        public interface IDoManaManipulation : ISubject
+        {
+            void OnChangeMana(IPlayer player, int amount);
+        }
+        
+        /// <summary>
+        ///     Broadcast of a reshuffle.
+        /// </summary>
+        public interface IDoReShuffle : ISubject
+        {
+            void OnReShuffle(IPlayer player);
+        }
+
+        /// <summary>
+        ///     Broadcast of a spawn character.
+        /// </summary>
+        public interface IPlayerSpawnCharacter : ISubject
+        {
+            void OnSpawnCharacter(IPlayer player, IRuntimeCharacter character);
+        }
+
+        /// <summary>
+        ///     Broadcast of restart game.
+        /// </summary>
+        public interface IRestartGame : ISubject
+        {
+            void OnRestart();
+        }
+        
+        
         
         
         
