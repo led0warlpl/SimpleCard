@@ -1,5 +1,7 @@
-﻿using Patterns;
-using SimpleCardGames.Battle;
+﻿
+using ZoroDex.SimpleCard.Battle;
+using ZoroDex.SimpleCard.Patterns;
+
 
 namespace ZoroDex.SimpleCard
 {

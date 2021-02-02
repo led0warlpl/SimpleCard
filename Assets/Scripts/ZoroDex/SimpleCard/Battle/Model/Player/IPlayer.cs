@@ -9,6 +9,8 @@ namespace ZoroDex.SimpleCard
         Configurations Configurations { get; }
         Collection<IRuntimeCard> Hand { get; }
         PlayerSeat Seat { get; }
+        ILibrary Library { get; }
+        Graveyard Graveyard { get; }
         
         ITeam Team { get; }
         int Mana { get; }
