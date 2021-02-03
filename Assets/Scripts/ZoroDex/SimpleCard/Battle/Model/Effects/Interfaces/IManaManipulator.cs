@@ -9,7 +9,7 @@
 
         void ConsumeMana(int amount);
 
-        void HasMana(int amount);
+        bool HasMana(int amount);
 
     }
 }
