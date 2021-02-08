@@ -32,20 +32,10 @@ namespace ZoroDex.SimpleCard.Battle
         public ICardData Data { get; private set; }
 
         //TODO: wait implement EffectsDispatcher
-        public void Play()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void Play() => EffectsDispatcher.DispatchEffects(this, EffectTriggerType.OnPlay);
+        public void Discard() => EffectsDispatcher.DispatchEffects(this, EffectTriggerType.OnDiscard);
 
-        public void Discard()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Draw()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void Draw() => EffectsDispatcher.DispatchEffects(this, EffectTriggerType.OnDraw);
 
         public void AddTargets(BaseEffectData effect, ITargetable[] targets) => Targets.Add(effect, targets);
 

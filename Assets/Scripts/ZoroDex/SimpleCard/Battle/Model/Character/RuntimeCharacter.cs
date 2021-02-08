@@ -29,7 +29,7 @@ namespace ZoroDex.SimpleCard
             Heal = new HealMechanic(this);
             Death = new DeathMechanic(this);
             AttackTurn = new AttackCharacterMechanic(this);
-            // TODO: wait implement Mechanics
+           
         }
 
         #region Heal

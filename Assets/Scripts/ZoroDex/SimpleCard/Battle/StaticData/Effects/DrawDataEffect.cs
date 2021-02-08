@@ -1,7 +1,16 @@
-﻿namespace ZoroDex.SimpleCard.Data.Effects
+﻿using UnityEngine;
+
+namespace ZoroDex.SimpleCard.Data.Effects
 {
-    public class DrawDataEffect
+    [CreateAssetMenu(menuName = Path +"/Draw")]
+    public class DrawDataEffect : BaseEffectData
     {
+        public override void Apply(ITargetable target, IEffectable source)
+        {
+            var drawable = target as IDrawable;
+            drawable.DoDraw(Amount,source);
+
+        }
         
     }
 }

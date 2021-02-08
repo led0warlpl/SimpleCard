@@ -5,6 +5,8 @@ namespace ZoroDex.SimpleCard.Battle
     public interface IGame
     {
         Configurations Configurations { get; }
+        
+        FinishGameMechanics FinishGame { get;  }
         List<IPlayer> Players { get; }
         ITurnLogic TurnLogic { get; }
         bool IsGameStarted { get; set; }

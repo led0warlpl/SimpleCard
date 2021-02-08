@@ -1,4 +1,6 @@
-﻿namespace ZoroDex.SimpleCard.Battle
+﻿using ZoroDex.SimpleCard.Battle.Controller;
+
+namespace ZoroDex.SimpleCard.Battle
 {
     public class DeathMechanic : CharMechanic
     {
@@ -14,8 +16,8 @@
             
             Attributes.Owner.Team.RemoveMember(Character);
             OnDeath(Attributes.Owner, Character);
-            //TODO: implement after GameController
-            //GameController.Instance.Data.RuntimeGame.FinishGame.CheckWinCondition();
+            
+            GameController.Instance.Data.RuntimeGame.FinishGame.CheckWinCondition();
         }
 
         public void OnDeath(IPlayer Owner, IRuntimeCharacter target) =>
