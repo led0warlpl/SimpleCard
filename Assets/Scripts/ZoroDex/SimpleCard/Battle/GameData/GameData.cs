@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using ZoroDex.SimpleCard.Data.Deck;
 using ZoroDex.SimpleCard.Data.Team;
@@ -16,7 +17,7 @@ namespace ZoroDex.SimpleCard.Battle
         [SerializeField] private TeamsCurrentData currentTeams;
         [SerializeField] private LibraryData deckData;
 
-        private TeamData TeadmData => currentTeams.PlayerTeam;
+        private TeamData TeamData => currentTeams.PlayerTeam;
         private TeamData EnemiesData => currentTeams.EnemyTeam;
 
         #region Properties
@@ -61,7 +62,15 @@ namespace ZoroDex.SimpleCard.Battle
         {
             //TODO: wait Player implement
             //create and connect players to their seats
+            var player1 = new Player(PlayerSeat.Left, TeamData, deckData, configurations);
             
+            //if the second player doesn't have a dec, send null
+            var player2 = new Player(PlayerSeat.Right, EnemiesData, null, configurations);
+            
+            //create game data
+            RuntimeGame = new Game(new List<IPlayer> {player1, player2}, configurations);
+
+
 
         }
 

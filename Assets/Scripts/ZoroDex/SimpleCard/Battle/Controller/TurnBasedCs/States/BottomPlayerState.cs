@@ -1,7 +1,21 @@
-﻿namespace ZoroDex.SimpleCard.Battle.Controller.TurnBasedCs.States
+﻿namespace ZoroDex.SimpleCard.Battle.Controller
 {
-    public class BottomPlayerState
+    /// <summary>
+    ///     Bottom, where the User is always sitting.
+    /// </summary>
+    public class BottomPlayerState : AiTurnState
     {
-        
+        public BottomPlayerState(TurnBasedFsm fsm, IGameData gameData, Configurations configuration)
+            : base(fsm, gameData, configuration)
+        {
+            
+        }
+
+
+        public override PlayerSeat Seat => PlayerSeat.Left;
+        protected override AiArchetype AiArchetype => Configurations.BottomAiArchetype;
+        public override bool IsAi => Configurations.BottomIsAi;
+        public override bool IsUser => true;
+
     }
 }

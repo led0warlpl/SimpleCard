@@ -17,7 +17,9 @@ namespace ZoroDex.SimpleCard.Battle
         void StartCurrentPlayerTurn();
         void FinishCurrentPlayerTurn();
         void Tick();
-        
+
+        void Attack(AttackMechanics.RuntimeAttackData data);
+
 
     }
 }
