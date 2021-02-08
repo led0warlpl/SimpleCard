@@ -9,7 +9,7 @@ namespace ZoroDex.SimpleCard.Battle
         // ----------------------------------------------------------------
         protected override void OnAwake() => global::Logger.Instance.Log<GameEvents>("Awake");
 
-        void Start() => global::Logger.Instance.Log<GameEvents>("Start");
+        void Start() => Logger.Instance.Log<GameEvents>("Start");
         
         // -----------------------------------------------------------------
 

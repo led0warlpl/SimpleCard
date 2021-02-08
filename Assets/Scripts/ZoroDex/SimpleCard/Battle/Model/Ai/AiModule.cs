@@ -65,6 +65,11 @@ namespace ZoroDex.SimpleCard.Battle
         
         // --------------------------------------------------------------
 
+        /// <summary>
+        ///     Returns the best move according to hte current ai submodule.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public AttackMechanics.RuntimeAttackData[] GetBestMove()
         {
             if (!subModules.ContainsKey(CurrentAi))
@@ -73,6 +78,10 @@ namespace ZoroDex.SimpleCard.Battle
             return subModules[CurrentAi].GetAttackMoves();
         }
 
+        /// <summary>
+        ///     Change the current archetype.
+        /// </summary>
+        /// <param name="archetype"></param>
         public void SwapAiToArchetype(AiArchetype archetype) => CurrentAi = archetype;
 
     }

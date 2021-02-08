@@ -41,6 +41,7 @@ namespace ZoroDex.SimpleCard.Battle
         protected override void OnAwake()
         {
             Logger.Instance.Log<GameData>("Awake");
+            CreateGame();
         }
 
         void Start() => Logger.Instance.Log<GameData>("Start");
@@ -60,7 +61,7 @@ namespace ZoroDex.SimpleCard.Battle
         /// </summary>
         public void CreateGame()
         {
-            //TODO: wait Player implement
+           
             //create and connect players to their seats
             var player1 = new Player(PlayerSeat.Left, TeamData, deckData, configurations);
             
