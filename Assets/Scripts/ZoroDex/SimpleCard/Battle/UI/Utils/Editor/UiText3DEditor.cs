@@ -3,7 +3,7 @@
 namespace ZoroDex.SimpleCard
 {
     [CustomEditor(typeof(UiText3D),true)]
-    public class UiText3DEditor : Editor
+    public class UiText3DEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

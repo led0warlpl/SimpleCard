@@ -9,7 +9,7 @@ namespace ZoroDex.SimpleCard
         protected static readonly int HashName = Animator.StringToHash("Animation");
         protected Animator Animator { get; set; }
 
-        protected void Awake() => Animator = GetComponent<Animator>();
+        protected  virtual void Awake() => Animator = GetComponent<Animator>();
 
         protected virtual IEnumerator Animate(float delay = 0)
         {
