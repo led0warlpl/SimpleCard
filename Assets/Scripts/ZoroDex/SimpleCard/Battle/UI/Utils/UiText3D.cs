@@ -15,7 +15,7 @@ namespace ZoroDex.SimpleCard
         [Tooltip("TMPro Component assigned by the Editor or Automatically on Awake.")]
         private TextMeshPro TmProText;
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             if (TmProText == null)
                 TmProText = GetComponent<TextMeshPro>();
