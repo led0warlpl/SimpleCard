@@ -1,0 +1,58 @@
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using ZoroDex.SimpleCard.Patterns;
+
+namespace ZoroDex.SimpleCard.Battle.UI.Card
+{
+    /// <summary>
+    ///     Ui Card Idle behaviour
+    /// </summary>
+    public class UiCardIdle : UiBaseCardState
+    {
+
+        public UiCardIdle(IUiCard handler, BaseStateMachine fsm, UiCardParameters parameters)
+            : base(handler, fsm, parameters) => DefaultSize = Handler.transform.localScale;
+        
+        Vector3 DefaultSize { get; }
+
+        public override void OnEnterState()
+        {
+            Handler.Input.OnPointerDown += OnPointerDown;
+            Handler.Input.OnPointerEnter += OnPointerEnter;
+
+            if (Handler.Motion.Movement.IsOperating)
+            {
+                DisableCollision();
+                Handler.Motion.Movement.OnFinishMotion += Enable;
+            }
+            else
+            {
+                Enable();
+            }
+
+            MakeRenderNormal();
+            Handler.Motion.ScaleTo(DefaultSize, Parameters.ScaleSpeed);
+
+        }
+
+        public override void OnExitState()
+        {
+            Handler.Input.OnPointerDown -= OnPointerDown;
+            Handler.Input.OnPointerEnter -= OnPointerEnter;
+            Handler.Motion.Movement.OnFinishMotion -= Enable;
+        }
+
+        void OnPointerEnter(PointerEventData obj)
+        {
+            if (Fsm.IsCurrent(this))
+                Handler.Hover();
+        }
+
+        void OnPointerDown(PointerEventData eventData)
+        {
+            if (Fsm.IsCurrent(this))
+                Handler.Select();
+        }
+        
+    }
+}

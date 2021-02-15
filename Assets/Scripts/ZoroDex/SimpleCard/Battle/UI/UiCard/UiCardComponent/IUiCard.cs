@@ -1,4 +1,5 @@
 ﻿using ZoroDex.SimpleCard.Battle.UI.UiPlayerHand;
+using ZoroDex.SimpleCard.Data.Card;
 using ZoroDex.SimpleCard.Patterns;
 using ZoroDex.SimpleCard.Tools.UI;
 
@@ -9,7 +10,7 @@ namespace ZoroDex.SimpleCard.Battle.UI.Card
     /// </summary>
     public interface IUiCard :IStateMachineHandler,IUiCardComponents,IUiMotion
     {
-        IUiCard Data { get; }
+        IUiCardData Data { get; }
         IUiPlayerHand Hand { get; }
         bool IsInitialized { get; }
         bool IsDragging { get; }
