@@ -19,10 +19,10 @@ namespace ZoroDex.SimpleCard.Data.Targets
 
         
          public abstract ITargetable[] GetTargets(IEffectable source, IGame gameData);
-         //TODO: wait implementation ITargetResolver
-         // public virtual void Subscribe(ITargetResolver Resolver){}
-         //
-         // public virtual void Unsubscribe(ITargetResolver Resolve){}
+         
+          public virtual void Subscribe(ITargetResolver Resolver){}
+         
+          public virtual void Unsubscribe(ITargetResolver Resolve){}
 
         
 

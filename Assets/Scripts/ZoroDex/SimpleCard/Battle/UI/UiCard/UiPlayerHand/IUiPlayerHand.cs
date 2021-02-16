@@ -12,8 +12,8 @@ namespace ZoroDex.SimpleCard.Battle.UI.UiPlayerHand
         Action<IUiCard> OnCardSelected { get; set; }
         Action<IUiCard> OnCardDiscarded { get; set; }
 
-        void PlayerSelected();
-        void UnSelect();
+        void PlaySelected();
+        void Unselect();
         void PlayCard(IUiCard uiCard);
         void SelectCard(IUiCard uiCard);
         void DiscardCard(IUiCard uiCard);
